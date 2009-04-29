@@ -48,11 +48,11 @@ local function update()
     local charge = tonumber(data:match(".*, ([%d]?[%d]?[%d]%.?[%d]?[%d]?)%%"))
     local time = data:match(".*, "..charge.."%%,. *(.*)$")
     
-    local color = "#FF0000"
+    local color = "#900000"
     if charge > 35 and charge < 60 then
-        color = "#FFFF00"
+        color = "#909000"
     elseif charge >= 40 then
-        color = "#00FF00"
+        color = "#009000"
     end
     battery_status = "<span color=\"" .. color .. "\">"..status[state:lower()].."</span> " .. charge .. "%"
 
