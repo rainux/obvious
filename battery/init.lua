@@ -26,6 +26,7 @@ widget = capi.widget({
 })
 status = {
     ["charged"] = "↯",
+    ["full"] = "↯",
     ["discharging"] = "▼",
     ["charging"] = "▲"
 }
