@@ -35,7 +35,7 @@ status = {
 
 local function update()
     local battery_status = ""
-    local fd = io.popen("acpi -V")
+    local fd = io.popen("acpi -b")
     if not fd then 
         widget.text = "acpitool failed"
         return
@@ -74,7 +74,7 @@ local function update()
 end
 
 local function detail ()
-    local fd = io.popen("acpi -V")
+    local fd = io.popen("acpi -bta")
     local d = fd:read("*all")
     fd:close()
     naughty.notify({
