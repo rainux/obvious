@@ -22,7 +22,7 @@ local table = {
 local capi = {
     widget = widget,
     button = button,
-    mouse = mouse
+    mouse = mouse,
     screen = screen
 }
 
