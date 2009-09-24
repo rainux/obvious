@@ -118,7 +118,6 @@ local data = setmetatable({}, { __mode = 'k' })
 --              vendor: card vendor.
 --              controls: List of card controls.
 
-
 --- Set default options.
 -- @param self A obvious.alsa object.
 local function set_default(self)
@@ -197,7 +196,7 @@ local function calculate_gradient(a, b, factor)
 end
 
 --- Update all values.
--- @param elf A obvious.alsa object.
+-- @param self A obvious.alsa object.
 local function update_values(self)
     local fd = io.popen("amixer -c " .. data[self].cur_card ..
         " -- sget " .. data[self].cur_control, "r")
@@ -295,7 +294,6 @@ local function mute(self)
     data[self].update_values()
 end
 
-
 --- Set the default alsa contoler.
 -- @param self A obvious.alsa object.
 -- @param card The card ID.
@@ -305,7 +303,6 @@ local function set_contol(self, card, control)
     data[self].cur_control = control
     data[self].update_values()
 end
-
 
 --- Read the cards information and build menu.
 -- @param self A obvious.alsa object.
@@ -326,7 +323,7 @@ local function read_cards(self)
         -- List all card controls
         local fd = io.popen("amixer -c " .. id .. " scontrols", "r")
         while true do
-            control = fd:read()
+            local control = fd:read()
             if not control then break end
             local name, cid = control:match("^.*'%s*([^']+)%s*',(%d+).*$")
             if not name then break end
@@ -384,7 +381,7 @@ end
 -- <code>control</code> The default card (default: Master,0).<br/>
 -- @return The created obvious.alsa.
 local function new(args)
-
+    args = args or { }
     local self = { }
 
     -- private data
