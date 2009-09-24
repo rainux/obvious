@@ -1,0 +1,20 @@
+Alsa widget
+
+This widget uses amixer to set/get current volume level. It is rather similar
+to volume_alsa, but differs in several ways:
+  - Cards and controls can be changed using context menu
+  - Volume level is displayed using progress bars for both Left and Right
+    channels
+  - It uses tooltip (A recent awesome version is required)
+
+To use this awesome widget change your rc.lua configuration:
+
+require("obvious.alsa")
+...
+obvious_alsa = obvious.alsa({})
+
+and in the wibox status bar add:
+
+    obvious_alsa.get_widgets()
+
+See init.lua file for complete usage.
